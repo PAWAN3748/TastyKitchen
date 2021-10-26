@@ -124,21 +124,21 @@ class Login extends Component {
             <InputFieldContainer>{this.renderUsername()}</InputFieldContainer>
             <InputFieldContainer>{this.renderPassword()}</InputFieldContainer>
             {showSubmitError && <ErrorMessage>{errorMsg}</ErrorMessage>}
-            <LoginButton>Login</LoginButton>
+            <LoginButton type="submit">Login</LoginButton>
           </FormContainer>
         </MobileLoginFormContainer>
         <DesktopLoginFormContainer>
           <DesktopFormContainer onSubmit={this.submitLoginForm}>
             <HatIcon
               src="https://res.cloudinary.com/joker3748/image/upload/v1633445373/TastyKitchen/Frame_274hat_icon_c13yga.png"
-              alt="app logo"
+              alt="website logo"
             />
             <DesktopAppHeading>Tasty Kitchen</DesktopAppHeading>
             <LoginHeading>Login</LoginHeading>
             <InputFieldContainer>{this.renderUsername()}</InputFieldContainer>
             <InputFieldContainer>{this.renderPassword()}</InputFieldContainer>
             {showSubmitError && <ErrorMessage>{errorMsg}</ErrorMessage>}
-            <LoginButton>Login</LoginButton>
+            <LoginButton type="submit">Login</LoginButton>
           </DesktopFormContainer>
           <DesktopLoginImageContainer>
             <DesktopLoginImage

@@ -23,11 +23,11 @@ const NotFound = () => (
         to the homepage
       </NotFoundText>
       <NotFoundTextDesktop>
-        we are sorry, the page you requested could not be found. <br /> Please
-        go back to the homepage
+        we are sorry, the page you requested could not be found
       </NotFoundTextDesktop>
+      <NotFoundTextDesktop>Please go back to the homepage</NotFoundTextDesktop>
       <NotFoundHomeLink to="/">
-        <NotFoundHomeButton>Go To Home Page</NotFoundHomeButton>
+        <NotFoundHomeButton>Home Page</NotFoundHomeButton>
       </NotFoundHomeLink>
     </NotFoundContainer>
   </>

@@ -70,6 +70,7 @@ export const LoginButton = styled.button`
   border-radius: 8px;
   margin-top: 20px;
   border: none;
+  cursor: pointer;
 `
 export const ErrorMessage = styled.p`
   color: #ef4444;

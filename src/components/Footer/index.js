@@ -21,13 +21,15 @@ const Footer = () => (
       />
       <FooterHeading>Tasty Kitchen</FooterHeading>
     </FooterLogoHeadingContainer>
-    <FooterAppLine>The only thing we are serious about is food.</FooterAppLine>
-    <ContactUs>Contact Us</ContactUs>
+    <FooterAppLine>
+      The only thing we are serious about is food.
+      <br /> Contact us on
+    </FooterAppLine>
     <SocialAppsContainer>
-      <PinterestIcon alt="pintrest-social-icon" />
-      <InstagramIcon alt="instagram-social-icon" />
-      <TwitterIcon alt="twitter-social-icon" />
-      <FacebookIcon alt="facebook-social-icon" />
+      <PinterestIcon data-testid="pintrest-social-icon" />
+      <InstagramIcon data-testid="instagram-social-icon" />
+      <TwitterIcon data-testid="twitter-social-icon" />
+      <FacebookIcon data-testid="facebook-social-icon" />
     </SocialAppsContainer>
   </FooterContainer>
 )

@@ -42,7 +42,7 @@ export const FooterAppLine = styled.p`
   width: 90%;
   text-align: center;
   line-height: 30px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   @media screen and (min-width: 768px) {
     margin-bottom: 35px;
   }

@@ -81,6 +81,7 @@ export const NotFoundHomeButton = styled.button`
   margin-right: 20px;
   margin-bottom: 40px;
   cursor: pointer;
+  border: none;
 `
 export const NotFoundHomeLink = styled(Link)`
   display: flex;
