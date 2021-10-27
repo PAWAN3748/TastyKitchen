@@ -2,6 +2,8 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
 
+import './index.css'
+
 import {
   MobileLoginFormContainer,
   LoginPageImageContainer,
@@ -74,8 +76,11 @@ class Login extends Component {
 
     return (
       <>
-        <InputLabel htmlFor="username">USERNAME</InputLabel>
-        <InputField
+        <label className="login-input-label" htmlFor="username">
+          USERNAME
+        </label>
+        <input
+          className="login-input-name"
           type="text"
           id="username"
           value={username}
@@ -90,8 +95,11 @@ class Login extends Component {
 
     return (
       <>
-        <InputLabel htmlFor="password">PASSWORD</InputLabel>
-        <InputField
+        <label className="login-input-label" htmlFor="password">
+          PASSWORD
+        </label>
+        <input
+          className="login-input-name"
           type="password"
           id="password"
           value={password}
@@ -110,43 +118,53 @@ class Login extends Component {
 
     return (
       <>
-        <MobileLoginFormContainer>
-          <LoginHeadingAndImageContainer>
-            <LoginHeading>Login</LoginHeading>
-            <LoginPageImageContainer>
-              <MobileLoginImage
+        <div className="mobile-login-form-container">
+          <div className="login-heading-image-container">
+            <h1 className="login-heading">Login</h1>
+            <div className="login-page-image-container">
+              <img
+                className="mobile-login-image"
                 src="https://res.cloudinary.com/joker3748/image/upload/v1633418959/TastyKitchen/Rectangle1457_rcrkft.png"
                 alt="website login"
               />
-            </LoginPageImageContainer>
-          </LoginHeadingAndImageContainer>
-          <FormContainer onSubmit={this.submitLoginForm}>
-            <InputFieldContainer>{this.renderUsername()}</InputFieldContainer>
-            <InputFieldContainer>{this.renderPassword()}</InputFieldContainer>
-            {showSubmitError && <ErrorMessage>{errorMsg}</ErrorMessage>}
-            <LoginButton type="submit">Login</LoginButton>
-          </FormContainer>
-        </MobileLoginFormContainer>
-        <DesktopLoginFormContainer>
-          <DesktopFormContainer onSubmit={this.submitLoginForm}>
-            <HatIcon
+            </div>
+          </div>
+          <form className="form-container" onSubmit={this.submitLoginForm}>
+            <div className="input-field-container">{this.renderUsername()}</div>
+            <div className="input-field-container">{this.renderPassword()}</div>
+            {showSubmitError && <p className="error-msg">{errorMsg}</p>}
+            <button className="login-button" type="submit">
+              Login
+            </button>
+          </form>
+        </div>
+        <div className="desktop-login-form-container">
+          <form
+            className="desktop-form-container"
+            onSubmit={this.submitLoginForm}
+          >
+            <img
+              className="hat-icon"
               src="https://res.cloudinary.com/joker3748/image/upload/v1633445373/TastyKitchen/Frame_274hat_icon_c13yga.png"
               alt="website logo"
             />
-            <DesktopAppHeading>Tasty Kitchen</DesktopAppHeading>
-            <LoginHeading>Login</LoginHeading>
-            <InputFieldContainer>{this.renderUsername()}</InputFieldContainer>
-            <InputFieldContainer>{this.renderPassword()}</InputFieldContainer>
-            {showSubmitError && <ErrorMessage>{errorMsg}</ErrorMessage>}
-            <LoginButton type="submit">Login</LoginButton>
-          </DesktopFormContainer>
-          <DesktopLoginImageContainer>
-            <DesktopLoginImage
+            <h1 className="desktop-app-heading">Tasty Kitchen</h1>
+            <h1 className="login-heading">Login</h1>
+            <div className="input-field-container">{this.renderUsername()}</div>
+            <div className="input-field-container">{this.renderPassword()}</div>
+            {showSubmitError && <p className="error-msg">{errorMsg}</p>}
+            <button className="login-button" type="submit">
+              Login
+            </button>
+          </form>
+          <div className="desktop-login-image-container">
+            <img
+              className="desktop-login-image"
               src="https://res.cloudinary.com/joker3748/image/upload/v1633447138/TastyKitchen/Rectangle_1456_rswv21.png"
               alt="website login"
             />
-          </DesktopLoginImageContainer>
-        </DesktopLoginFormContainer>
+          </div>
+        </div>
       </>
     )
   }

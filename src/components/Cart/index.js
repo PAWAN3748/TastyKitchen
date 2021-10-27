@@ -15,9 +15,9 @@ const Cart = () => (
       return (
         <>
           <Header />
-          <CartContainer>
+          <div className="cart-container">
             {showEmptyView ? <EmptyCart /> : <CartListView />}
-          </CartContainer>
+          </div>
         </>
       )
     }}

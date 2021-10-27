@@ -1,0 +1,148 @@
+.slider-container {
+  border: none;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.restaurant-list-container {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurant-list-container {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.all-restaurant-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .all-restaurant-container {
+    width: 90vw;
+  }
+}
+
+.popular-res-heading {
+  color: #183b56;
+  font-family: 'DM Sans';
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.res-intro-sort-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .res-intro-sort-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.res-intro {
+  color: #64748b;
+  font-family: 'DM Sans';
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.sort-by-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sort-icon {
+  font-size: 24px;
+  color: #475569;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.sort-by {
+  color: #475569;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'DM Sans';
+}
+
+.sort-by-select {
+  color: #475569;
+  background-color: #ffffff;
+  font-family: 'DM Sans';
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  padding: 12px;
+  outline: none;
+  cursor: pointer;
+}
+
+.sort-by-option {
+  color: #475569;
+  font-size: 14px;
+  font-family: 'DM Sans';
+}
+
+.active-page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-container {
+  border: 0.5px normal #334155;
+}
+
+.arrow-button {
+  text-align: center;
+  background-color: transparent;
+  cursor: pointer;
+}
+.left-arrow-icon {
+  height: 15px;
+  width: 15px;
+}
+
+.active-page-number {
+  color: #334155;
+  font-size: 20px;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.hr-line {
+  width: 90vw;
+  background-color: #cbd2d9;
+  border: 1px normal;
+}

@@ -1,6 +1,9 @@
+import {BiRupee} from 'react-icons/bi'
+
 import CartContext from '../../context/CartContext'
 import Counter from '../Counter'
-import {
+
+/* import {
   CartListItem,
   CartListHeading,
   CartItemImage,
@@ -14,7 +17,9 @@ import {
   PriceContainer,
   TotalOrderPrice,
   TotalOrderText,
-} from './StyledComponents'
+} from './StyledComponents' */
+
+import './index.css'
 
 const CartItem = props => (
   <CartContext.Consumer>
@@ -47,33 +52,37 @@ const CartItem = props => (
 
       return (
         <>
-          <CartListItem>
-            <CartItemImage src={foodImageUrl} />
-            <CartItemDetailsContainer>
-              <CartListHeading>{foodName}</CartListHeading>
-              <AddOrSubContainer>
-                <AddOrSbButton
+          <li className="cart-list-item">
+            <img className="cart-item-image" src={foodImageUrl} />
+            <div className="cart-item-details-container">
+              <h1 className="Cart-item-list-heading">{foodName}</h1>
+              <div className="cart-item-add-sub-container">
+                <button
+                  className="cart-item-add-sub-button"
                   type="button"
                   onClick={onDecrement}
                   data-testid="decrement-quantity"
                 >
                   -
-                </AddOrSbButton>
-                <FoodCount data-testid="item-quantity">{foodCount}</FoodCount>
-                <AddOrSbButton
+                </button>
+                <p className="cart-item-food-count" testid="item-quantity">
+                  {foodCount}
+                </p>
+                <button
+                  className="cart-item-add-sub-button"
                   type="button"
                   onClick={onIncrement}
                   data-testid="increment-quantity"
                 >
                   +
-                </AddOrSbButton>
-              </AddOrSubContainer>
-              <PriceContainer>
-                <Rupee />
-                <FoodPrice>{totalPrice}.00</FoodPrice>
-              </PriceContainer>
-            </CartItemDetailsContainer>
-          </CartListItem>
+                </button>
+              </div>
+              <div className="cart-item-price-container">
+                <BiRupee className="cart-item-rupee-icon" />
+                <p className="cart-item-food-total-price">{totalPrice}.00</p>
+              </div>
+            </div>
+          </li>
         </>
       )
     }}

@@ -1,7 +1,11 @@
 import {Link} from 'react-router-dom'
+import {BiRupee} from 'react-icons/bi'
+
 import CartContext from '../../context/CartContext'
 import CartItem from '../CartItem'
 import Footer from '../Footer'
+
+/*
 import {
   CartListItemContainer,
   CartHrLine,
@@ -13,6 +17,10 @@ import {
   PlaceOrderButton,
   LinkPlaceOrder,
 } from './StyledComponents'
+
+*/
+
+import './index.css'
 
 const CartListView = () => (
   <CartContext.Consumer>
@@ -31,26 +39,30 @@ const CartListView = () => (
 
       return (
         <>
-          <CartListItemContainer>
+          <ul className="cart-list-item-container">
             {cartList.map(each => (
               <CartItem key={each.id} cartItemDetails={each} />
             ))}
-          </CartListItemContainer>
-          <CartHrLine />
-          <TotalOrderPrice>
-            <TotalOrderText>Order Total : </TotalOrderText>
-            <PriceContainer data-testid="total-price">
-              <Rupee />
-              <TotalPrice data-testid="total-price">
+          </ul>
+          <hr className="cart-hr-line" />
+          <div className="total-order-price">
+            <p className="total-order-text">Order Total : </p>
+            <div className="price-container" testid="total-price">
+              <BiRupee clasName="cart-list-rupee" />
+              <p className="total-price" testid="total-price">
                 {TotalOrderAmount}.00
-              </TotalPrice>
-            </PriceContainer>
-          </TotalOrderPrice>
-          <LinkPlaceOrder to="/payment_success">
-            <PlaceOrderButton type="button" onClick={onClickPlaceOrder}>
+              </p>
+            </div>
+          </div>
+          <Link to="/payment_success" className="link-place-order">
+            <button
+              className="place-order-button"
+              type="button"
+              onClick={onClickPlaceOrder}
+            >
               Place Order
-            </PlaceOrderButton>
-          </LinkPlaceOrder>
+            </button>
+          </Link>
           <Footer />
         </>
       )

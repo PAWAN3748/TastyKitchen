@@ -1,0 +1,134 @@
+.header-nav-container {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+  padding-bottom: 0px;
+  background-color: #f8fafc;
+}
+
+.logo-app-name-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .logo-app-name-container {
+    margin-left: 32px;
+  }
+}
+
+.header-logo {
+  height: 43px;
+  width: 53px;
+}
+
+.header-app-heading {
+  font-family: 'DM Sans';
+  font-size: 26px;
+  line-height: 16px;
+  color: #f7931e;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.logo-button {
+  border-radius: 8px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .logo-button {
+    display: none;
+  }
+}
+
+.bars {
+  cursor: pointer;
+  height: 33px;
+  width: 53px;
+}
+
+.desktop-menu-item-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px;
+  list-style-type: none;
+  justify-content: space-around;
+  margin-right: 32px;
+  align-items: center;
+  padding-left: 0px;
+  width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop-menu-item-container {
+    display: none;
+  }
+}
+
+.list-item {
+  font-size: 18px;
+  font-family: 'DM Sans';
+  margin-top: 15px;
+  font-weight: bold;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .list-item {
+    margin-right: 15px;
+  }
+}
+
+.logout-button {
+  height: 35px;
+  color: #ffffff;
+  background-color: #f7931e;
+  border-radius: 8px;
+  width: 95px;
+  border: transparent;
+  cursor: pointer;
+}
+
+.burger-icon-items-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .burger-icon-items-container {
+    display: none;
+  }
+}
+
+.menu-item-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px;
+  list-style-type: none;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 0px;
+}
+
+.close-menu-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.close-icon {
+  height: 25px;
+  width: 25px;
+}

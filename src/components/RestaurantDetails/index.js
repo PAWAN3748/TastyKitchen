@@ -1,11 +1,15 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
+import {BsStarFill} from 'react-icons/bs'
+import {BiRupee} from 'react-icons/bi'
+
 import Cookies from 'js-cookie'
 
 import Header from '../Header'
 import Footer from '../Footer'
 import Food from '../Food'
-import {
+import './index.css'
+/* import {
   ResItemBgContainer,
   ResItemImageContainer,
   ResItemImage,
@@ -26,7 +30,7 @@ import {
   CostForTwo,
   FoodDetailsContainer,
   ResLoaderContainer,
-} from './StyledComponents'
+} from './StyledComponents' */
 
 const restaurantApiStatusConstants = {
   initial: 'INITIAL',
@@ -105,9 +109,9 @@ class RestaurantDetails extends Component {
 
   renderFoodLoadingView = () => (
     <>
-      <ResLoaderContainer testid="loader">
+      <div className="res-loader-container" testid="loader">
         <Loader type="TailSpin" color="#F7931E" height="50" width="50" />
-      </ResLoaderContainer>
+      </div>
     </>
   )
 
@@ -116,11 +120,14 @@ class RestaurantDetails extends Component {
 
     return (
       <>
-        <FoodDetailsContainer data-testid="restaurant-details-loader">
+        <ul
+          className="food-details-container"
+          testid="restaurant-details-loader"
+        >
           {foodItemsDataList.map(food => (
             <Food food={food} key={food.id} />
           ))}
-        </FoodDetailsContainer>
+        </ul>
       </>
     )
   }
@@ -153,32 +160,36 @@ class RestaurantDetails extends Component {
     return (
       <>
         <Header />
-        <ResItemBgContainer>
-          <ResItemImageContainer>
-            <ResItemImage src={imageUrl} />
-          </ResItemImageContainer>
-          <ResItemDetailsContainer>
-            <ResItemName>{name}</ResItemName>
-            <ResItemCuisine>{cuisine}</ResItemCuisine>
-            <Location>{location}</Location>
-            <RatingAndCostContainer>
-              <RatingContainer>
-                <StarContainer>
-                  <RatingStar />
-                  <ResRating>{rating}</ResRating>
-                </StarContainer>
-                <ReviewsCount>{reviewsCount}+ Ratings</ReviewsCount>
-              </RatingContainer>
-              <CostContainer>
-                <RupeeContainer>
-                  <Rupee />
-                  <Cost>{costForTwo}</Cost>
-                </RupeeContainer>
-                <CostForTwo>Cost for two</CostForTwo>
-              </CostContainer>
-            </RatingAndCostContainer>
-          </ResItemDetailsContainer>
-        </ResItemBgContainer>
+        <div className="res-item0bg-container">
+          <div className="res-item-details-image-container">
+            <img className="res-item-details-image" src={imageUrl} />
+          </div>
+          <div className="res-item-details-container">
+            <h1 className="res-item-details-name">{name}</h1>
+            <p className="res-item-details-cuisine">{cuisine}</p>
+            <p className="res-item-details-location">{location}</p>
+            <div className="res-item-details-rating-cost-container">
+              <div className="ras-item-details-rating-container">
+                <div className="res-item-details-star-container">
+                  <BsStarFill className="res-item-details-star" />
+                  <p className="res-item-details-rating">{rating}</p>
+                </div>
+                <p className="res-item-details-review-count">
+                  {reviewsCount}+ Ratings
+                </p>
+              </div>
+              <div className="res-item-details-cost-container">
+                <div className="res-item-details-rupee-container">
+                  <BiRupee className="res-item-details-rupee" />
+                  <p className="res-item-details-cost-for-two">{costForTwo}</p>
+                </div>
+                <p className="res-item-details-cost-for-two-value">
+                  Cost for two
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         {this.renderFoodItems()}
         <Footer />
       </>

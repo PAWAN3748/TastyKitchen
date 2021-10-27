@@ -1,11 +1,13 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
+import {BsFilterLeft, BsChevronLeft, BsChevronRight} from 'react-icons/bs'
 
 import Header from '../Header'
 import Restaurants from '../Restaurants'
 import Footer from '../Footer'
-import {
+import './index.css'
+/* import {
   SlickContainer,
   PopularResHeading,
   AllRestaurantContainer,
@@ -27,7 +29,7 @@ import {
   MainContainer,
   LoaderContainer,
   SliderContainer,
-} from './StyledComponents'
+} from './StyledComponents' */
 import OffersSlider from '../OffersSlider'
 
 const slackApiStatusConstants = {
@@ -181,12 +183,11 @@ class Home extends Component {
 
   renderSlackSuccessView = () => {
     const {slackData} = this.state
-    // console.log(slackData)
     return (
       <>
-        <SliderContainer data-testid="restaurants-offers-loader">
+        <div className="slider-container" testid="restaurants-offers-loader">
           <OffersSlider sliderImagesList={slackData} />
-        </SliderContainer>
+        </div>
       </>
     )
   }
@@ -195,9 +196,9 @@ class Home extends Component {
 
   renderSlackLoadingView = () => (
     <>
-      <dLoaderContainer testid="loader">
+      <div testid="loader" className="loader-container">
         <Loader type="TailSpin" color="#F7931E" height="50" width="50" />
-      </dLoaderContainer>
+      </div>
     </>
   )
 
@@ -221,11 +222,11 @@ class Home extends Component {
 
     return (
       <>
-        <RestaurantListContainer data-testid="restaurant-item">
+        <ul className="restaurant-list-container" testid="restaurant-item">
           {restaurantData.map(each => (
             <Restaurants restaurant={each} key={each.id} />
           ))}
-        </RestaurantListContainer>
+        </ul>
       </>
     )
   }
@@ -234,9 +235,9 @@ class Home extends Component {
 
   renderRestaurantLoadingView = () => (
     <>
-      <dLoaderContainer testid="loader">
+      <div className="loader-container" testid="loader">
         <Loader type="TailSpin" color="#F7931E" height="50" width="50" />
-      </dLoaderContainer>
+      </div>
     </>
   )
 
@@ -281,56 +282,63 @@ class Home extends Component {
       <>
         <Header />
         {this.slackSlideSection()}
-        <MainContainer>
-          <AllRestaurantContainer>
-            <PopularResHeading>Popular Restaurants</PopularResHeading>
-            <ResIntroSortContainer>
-              <ResIntro>
+        <div className="main-container">
+          <div className="all-restaurant-container">
+            <h1 className="popular-res-heading">Popular Restaurants</h1>
+            <div className="res-intro-sort-container">
+              <p className="res-intro">
                 Select Your favorite restaurant special dish and make your day
                 happy..
-              </ResIntro>
-              <SortByContainer>
-                <SortIcon />
-                <SortBy>Sort by</SortBy>
-                <SortBySelect
+              </p>
+              <div className="sort-by-container">
+                <BsFilterLeft className="sort-icon" />
+                <p className="sort-by">Sort by</p>
+                <select
+                  className="sort-by-select"
                   onChange={this.onChangeSort}
                   value={selectedSortByValue}
                 >
                   {sortByOptions.map(eachOption => (
-                    <SortByOption value={eachOption.value} key={eachOption.id}>
+                    <option
+                      className="sort-by-option"
+                      value={eachOption.value}
+                      key={eachOption.id}
+                    >
                       {eachOption.displayText}
-                    </SortByOption>
+                    </option>
                   ))}
-                </SortBySelect>
-              </SortByContainer>
-            </ResIntroSortContainer>
-            <HrLine />
+                </select>
+              </div>
+            </div>
+            <hr className="hr-line" />
             {this.renderRestaurantResult()}
-            <ActivePageContainer>
-              <ArrowContainer>
-                <ArrowBButton
+            <div className="active-page-container">
+              <div className="arrow-container">
+                <button
+                  className="arrow-button"
                   data-testid="pagination-left-button"
                   onClick={this.onClickLeftArrow}
                   type="button"
                 >
-                  <LeftArrowIcon />
-                </ArrowBButton>
-              </ArrowContainer>
-              <ActivePage data-testid="active-page-number">
+                  <BsChevronLeft className="left-arrow-icon" />
+                </button>
+              </div>
+              <p className="active-page-number" testid="active-page-number">
                 {activePage} of 4
-              </ActivePage>
-              <ArrowContainer>
-                <ArrowBButton
+              </p>
+              <div className="arrow-container">
+                <button
+                  className="arrow-button"
                   onClick={this.onClickRightArrow}
                   type="button"
                   data-testid="pagination-right-button"
                 >
-                  <RightArrowIcon />
-                </ArrowBButton>
-              </ArrowContainer>
-            </ActivePageContainer>
-          </AllRestaurantContainer>
-        </MainContainer>
+                  <BsChevronRight className="left-arrow-icon" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <Footer />
       </>
     )

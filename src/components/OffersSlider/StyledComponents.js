@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 import Slider from 'react-slick'
 
-export const SlideContainer = styled.div`
-`
-
 export const SlickSlider = styled(Slider)`
   .slick-dots {
     top: 220px;
@@ -18,4 +15,7 @@ export const SlickSlider = styled(Slider)`
   .slick-slide img {
     width: 90vw !important;
   }
+`
+export const hai = styled.div`
+  display: flex;
 `

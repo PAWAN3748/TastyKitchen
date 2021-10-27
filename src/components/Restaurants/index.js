@@ -1,4 +1,7 @@
-import {
+import {Link} from 'react-router-dom'
+import {BsFillStarFill} from 'react-icons/bs'
+
+/* import {
   EachRestaurant,
   ResName,
   ResDetailsContainer,
@@ -10,7 +13,8 @@ import {
   ResRating,
   ResImageContainer,
   LinkComponent,
-} from './StyledComponents'
+} from './StyledComponents' */
+import './index.css'
 
 const Restaurants = props => {
   const {restaurant} = props
@@ -18,21 +22,25 @@ const Restaurants = props => {
 
   return (
     <>
-      <LinkComponent to={`/restaurants/${restrauntId}`}>
-        <EachRestaurant>
-          <ResDetailsContainer>
-            <ResImageThumb src={imageUrl} alt="restaurant" />
-            <ResNameAndRatingContainer>
-              <ResName>{name}</ResName>
-              <ResCuisine>{cuisine}</ResCuisine>
-              <StarAndRatingContainer>
-                <ResStar />
-                <ResRating>{rating}</ResRating>
-              </StarAndRatingContainer>
-            </ResNameAndRatingContainer>
-          </ResDetailsContainer>
-        </EachRestaurant>
-      </LinkComponent>
+      <Link to={`/restaurants/${restrauntId}`} className="link-component">
+        <li className="each-restaurant">
+          <div className="restaurant-details-container">
+            <img
+              className="restaurant-details-image"
+              src={imageUrl}
+              alt="restaurant"
+            />
+            <div className="res-name-rating-container">
+              <h1 className="res-details-name">{name}</h1>
+              <p className="res-details-cuisine">{cuisine}</p>
+              <div className="res-star-rating-container">
+                <BsFillStarFill className="res-star" />
+                <p className="res-rating">{rating}</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </Link>
     </>
   )
 }

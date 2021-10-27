@@ -1,0 +1,17 @@
+.offers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.offers-image {
+  width: 250px;
+  height: 250px;
+}
+@media screen and (min-width: 768px) {
+  .offers-image {
+    width: 405px;
+    height: 292px;
+  }
+}

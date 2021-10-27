@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import {AddOrSubContainer, AddOrSbButton, FoodCount} from './StyledComponents'
 import CartContext from '../../context/CartContext'
+import './index.css'
 
 class Counter extends Component {
   state = {
@@ -47,21 +48,25 @@ class Counter extends Component {
 
         return (
           <>
-            <AddOrSbButton
+            <button
+              className="add-Sub-button"
               type="button"
-              data-testid="decrement-count"
+              testid="decrement-count"
               onClick={onDecrement}
             >
               -
-            </AddOrSbButton>
-            <FoodCount data-testid="active-count">{foodCount}</FoodCount>
-            <AddOrSbButton
+            </button>
+            <p className="counter-food-count" testid="active-count">
+              {foodCount}
+            </p>
+            <button
+              className="add-Sub-button"
               type="button"
               onClick={onIncrement}
-              data-testid="increment-count"
+              testid="increment-count"
             >
               +
-            </AddOrSbButton>
+            </button>
           </>
         )
       }}
@@ -72,7 +77,9 @@ class Counter extends Component {
     const {foodCount} = this.state
     const {onFoodCount, onIncreaseFood} = this.props
     onFoodCount(foodCount)
-    return <AddOrSubContainer>{this.incrementAndDecrement()}</AddOrSubContainer>
+    return (
+      <div className="add-sub-container">{this.incrementAndDecrement()}</div>
+    )
   }
 }
 

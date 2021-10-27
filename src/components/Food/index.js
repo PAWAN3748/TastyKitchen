@@ -1,5 +1,8 @@
 import {Component} from 'react'
-import {
+import {BiRupee} from 'react-icons/bi'
+import {BsStarFill} from 'react-icons/bs'
+
+/* import {
   FoodListItemContainer,
   FoodItemImageContainer,
   FoodItemImage,
@@ -12,9 +15,11 @@ import {
   FoodAddButton,
   Rupee,
   PriceContainer,
-} from './StyledComponents'
+} from './StyledComponents' */
+
 import Counter from '../Counter'
 import CartContext from '../../context/CartContext'
+import './index.css'
 
 class Food extends Component {
   state = {
@@ -73,9 +78,14 @@ class Food extends Component {
                 onDecreaseFood={onDecreaseFood}
               />
             ) : (
-              <FoodAddButton type="button" value={foodId} onClick={onClickAdd}>
+              <button
+                className="food-add-button"
+                type="button"
+                value={foodId}
+                onClick={onClickAdd}
+              >
                 ADD
-              </FoodAddButton>
+              </button>
             )}
           </>
         )
@@ -91,23 +101,27 @@ class Food extends Component {
 
     return (
       <>
-        <FoodListItemContainer>
-          <FoodItemImageContainer>
-            <FoodItemImage src={foodImageUrl} alt="foodItem" />
-          </FoodItemImageContainer>
-          <FoodItemDetailsContainer>
-            <FoodHeading>{foodName}</FoodHeading>
-            <PriceContainer>
-              <Rupee />
-              <FoodPrice>{foodCost}.00</FoodPrice>
-            </PriceContainer>
-            <FoodRatingContainer>
-              <RatingStar />
-              <FoodRating>{rating}</FoodRating>
-            </FoodRatingContainer>
+        <li className="food-list-item-container" testid="foodItem">
+          <div className="food-item-image-container">
+            <img
+              className="food-item-image"
+              src={foodImageUrl}
+              alt="foodItem"
+            />
+          </div>
+          <div className="food-item-details-container">
+            <h1 className="food-heading">{foodName}</h1>
+            <div className="price-container">
+              <BiRupee className="rupee-icon" />
+              <p className="food-price">{foodCost}.00</p>
+            </div>
+            <div className="food-rating-container">
+              <BsStarFill className="food-rating-star" />
+              <p className="food-rating">{rating}</p>
+            </div>
             {this.addFoodButton()}
-          </FoodItemDetailsContainer>
-        </FoodListItemContainer>
+          </div>
+        </li>
       </>
     )
   }

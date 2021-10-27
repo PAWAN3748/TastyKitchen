@@ -1,6 +1,8 @@
 import {Component} from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
+import {FaBars} from 'react-icons/fa'
+import {AiFillCloseCircle} from 'react-icons/ai'
 import {
   Nav,
   LogoAndAppNameContainer,
@@ -16,6 +18,7 @@ import {
   CloseMenuButton,
   DesktopMenuItemContainer,
 } from './StyledComponents'
+import './index.css'
 
 class Header extends Component {
   state = {isClicked: false, isHomeActive: true, isCartActive: false}
@@ -51,19 +54,20 @@ class Header extends Component {
 
     return (
       <>
-        <Nav>
-          <LogoAndAppNameContainer>
-            <HeaderLogo
+        <nav className="header-nav-container">
+          <div className="logo-app-name-container">
+            <img
+              className="header-logo"
               src="https://res.cloudinary.com/joker3748/image/upload/v1633445373/TastyKitchen/Frame_274hat_icon_c13yga.png"
               alt="website logo"
             />
-            <HeaderAppHeading>TastyKitchen</HeaderAppHeading>
-          </LogoAndAppNameContainer>
-          <LogoButton onClick={this.onClickBarButton}>
-            <Bars />
-          </LogoButton>
-          <DesktopMenuItemContainer>
-            <ListItem onClick={this.onHomeClick}>
+            <h1 className="header-app-heading">TastyKitchen</h1>
+          </div>
+          <button className="logo-button" onClick={this.onClickBarButton}>
+            <FaBars className="bars" />
+          </button>
+          <ul className="desktop-menu-item-container">
+            <li className="list-item" onClick={this.onHomeClick}>
               <Link
                 to="/"
                 style={{
@@ -73,8 +77,8 @@ class Header extends Component {
               >
                 Home
               </Link>
-            </ListItem>
-            <ListItem onClick={this.onCartClick}>
+            </li>
+            <li className="list-item" m onClick={this.onCartClick}>
               <Link
                 to="/cart"
                 style={{
@@ -84,18 +88,21 @@ class Header extends Component {
               >
                 Cart
               </Link>
-            </ListItem>
-            <ListItem>
-              <LogoutButton onClick={this.onClickLogoutButton}>
+            </li>
+            <li className="list-item" m>
+              <button
+                className="logout-button"
+                onClick={this.onClickLogoutButton}
+              >
                 Logout
-              </LogoutButton>
-            </ListItem>
-          </DesktopMenuItemContainer>
-        </Nav>
+              </button>
+            </li>
+          </ul>
+        </nav>
         {isClicked ? (
-          <BurgerIconItemsContainer>
-            <MenuItemContainer>
-              <ListItem onClick={this.onHomeClick}>
+          <div className="burger-icon-items-container">
+            <ul className="menu-item-container">
+              <li className="list-item" onClick={this.onHomeClick}>
                 <Link
                   to="/"
                   style={{
@@ -105,8 +112,8 @@ class Header extends Component {
                 >
                   Home
                 </Link>
-              </ListItem>
-              <ListItem onClick={this.onCartClick}>
+              </li>
+              <li className="list-item" onClick={this.onCartClick}>
                 <Link
                   to="/cart"
                   style={{
@@ -116,17 +123,23 @@ class Header extends Component {
                 >
                   Cart
                 </Link>
-              </ListItem>
-              <ListItem>
-                <LogoutButton onClick={this.onClickLogoutButton}>
+              </li>
+              <li className="list-item">
+                <button
+                  className="logout-button"
+                  onClick={this.onClickLogoutButton}
+                >
                   Logout
-                </LogoutButton>
-              </ListItem>
-            </MenuItemContainer>
-            <CloseMenuButton>
-              <CloseButton onClick={this.onClickBarButton} />
-            </CloseMenuButton>
-          </BurgerIconItemsContainer>
+                </button>
+              </li>
+            </ul>
+            <button
+              className="close-menu-button"
+              onClick={this.onClickBarButton}
+            >
+              <AiFillCloseCircle className="close-icon" />
+            </button>
+          </div>
         ) : null}
       </>
     )

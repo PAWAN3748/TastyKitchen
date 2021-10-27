@@ -1,0 +1,96 @@
+.cart-list-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+.cart-item-image {
+  width: 156px;
+  height: 126px;
+  border-radius: 4px;
+}
+
+.cart-item-details-container {
+  margin-left: 16px;
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.Cart-item-list-heading {
+  color: #183b56;
+  font-family: DM Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.20000000298023224px;
+  text-align: left;
+}
+
+.cart-item-add-sub-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+}
+
+.cart-item-add-sub-button {
+  background-color: transparent;
+  border: 1px normal #3e4c59;
+  border-radius: 4px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.cart-item-food-count {
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #475569;
+  width: 40px;
+  text-align: center;
+}
+
+.cart-item-price-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.cart-item-rupee-icon {
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #334155;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #ffa412;
+  margin-top: 15px;
+}
+
+.cart-item-food-total-price {
+     font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #334155;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #ffa412;
+  margin-top: 15px;
+}

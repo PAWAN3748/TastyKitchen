@@ -1,28 +1,33 @@
-import {
+import {Link} from 'react-router-dom'
+
+import {BsFillCheckCircleFill} from 'react-icons/bs'
+/* import {
   PaymentContainer,
   CheckIcon,
   PaymentSuccess,
   ThankYou,
   PaymentHomeButton,
   PaymentHomeLink,
-} from './StyledComponents'
+} from './StyledComponents' */
 import Header from '../Header'
-
+import './index.css'
 const Payment = () => (
   <>
     <Header />
-    <PaymentContainer>
-      <CheckIcon />
-      <PaymentSuccess>Payment Successful</PaymentSuccess>
-      <ThankYou>
+    <div className="payment-container">
+      <BsFillCheckCircleFill className="check-icon" />
+      <h1 className="payment-success-heading">Payment Successful</h1>
+      <p className="thank-you-text">
         Thank you for ordering
         <br />
         Your payment is successfully completed.
-      </ThankYou>
-      <PaymentHomeLink to="/">
-        <PaymentHomeButton>Go To Home Page</PaymentHomeButton>
-      </PaymentHomeLink>
-    </PaymentContainer>
+      </p>
+      <Link to="/" className="payment-to-home-link">
+        <button type="button" className="payment-button">
+          Go To Home Page
+        </button>
+      </Link>
+    </div>
   </>
 )
 

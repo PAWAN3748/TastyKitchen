@@ -1,9 +1,10 @@
 import Slider from 'react-slick'
-
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+
 import OfferItem from '../OfferItem'
-import {SlickSlider, SlideContainer} from './StyledComponents'
+/* import {SlickSlider, SlideContainer} from './StyledComponents' */
+import './index.css'
 
 const OffersSlider = props => {
   const {sliderImagesList} = props
@@ -18,14 +19,13 @@ const OffersSlider = props => {
   }
 
   return (
-      <SlideContainer data-testid="restaurants-list-loader">
-<SlickSlider {...settings}>
-      {sliderImagesList.map(eachSlid => (
-        <OfferItem key={eachSlid.id} offerDetails={eachSlid} />
-      ))}
-    </SlickSlider>
-      </SlideContainer>
-    
+    <div testid="restaurants-list-loader">
+      <Slider {...settings}>
+        {sliderImagesList.map(eachSlid => (
+          <OfferItem key={eachSlid.id} offerDetails={eachSlid} />
+        ))}
+      </Slider>
+    </div>
   )
 }
 

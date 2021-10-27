@@ -1,0 +1,15 @@
+.slick-dots {
+  top: 220px;
+  height: 30px;
+}
+.slick-slide img {
+  width: 100vw !important;
+}
+@media screen and (min-width: 768px) {
+  .slick-dots {
+    top: 250px;
+  }
+  .slick-slide img {
+    width: 90vw !important;
+  }
+}

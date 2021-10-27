@@ -1,0 +1,262 @@
+.res-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.food-details-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .food-details-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 100px;
+  }
+}
+
+.res-item0bg-container {
+  background-image: url('https://res.cloudinary.com/joker3748/image/upload/v1634044583/TastyKitchen/res_bg1_hoiymd.png');
+  background-repeat: no-repeat;
+  background-size: 100vw 100%;
+  height: 210px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .res-item0bg-container {
+    height: 344px;
+  }
+}
+
+.res-item-details-image-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.res-item-details-image {
+  height: 250px;
+  width: 250px;
+  border-radius: 134px;
+  margin-top: -74px;
+  margin-left: -64px;
+}
+
+@media screen and (min-width: 768px) {
+  .res-item-details-image {
+    border-radius: 8px;
+    width: 445px;
+    height: 280px;
+    margin-top: 32px;
+    margin-left: 115px;
+  }
+}
+.res-item-details-container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-left: 25px;
+  justify-content: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .res-item-details-container {
+    justify-content: center;
+  }
+}
+.res-item-details-name {
+  font-family: 'Roboto';
+  color: #ffffff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.20000000298023224px;
+  text-align: left;
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 768px) {
+  .res-item-details-name {
+    font-size: 36px;
+    margin-bottom: 20px;
+    line-height: 40px;
+  }
+}
+
+.res-item-details-cuisine {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .res-item-details-cuisine {
+    font-size: 16px;
+  }
+}
+.res-item-details-location {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .res-item-details-location {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.res-item-details-rating-cost-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.ras-item-details-rating-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-right: 1px solid #ffffff;
+  width: 100px;
+}
+.res-item-details-star-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.res-item-details-star {
+  color: #ffffff;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .res-item-details-star {
+    font-size: 16px;
+  }
+}
+
+.res-item-details-rating {
+  font-family: DM Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 768px) {
+  .res-item-details-rating {
+    font-size: 16px;
+  }
+}
+
+.res-item-details-review-count {
+  font-family: DM Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .res-item-details-review-count {
+    font-size: 14px;
+  }
+}
+
+.res-item-details-cost-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20px;
+  width: 100px;
+}
+
+.res-item-details-rupee-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.res-item-details-rupee {
+  color: #ffffff;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .res-item-details-rupee {
+    font-size: 16px;
+  }
+}
+
+.res-item-details-cost-for-two {
+  font-family: DM Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .res-item-details-cost-for-two {
+    font-size: 16px;
+  }
+}
+
+.res-item-details-cost-for-two-value {
+  font-family: DM Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .res-item-details-cost-for-two-value {
+    font-size: 14px;
+  }
+}
