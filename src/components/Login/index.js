@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom'
 
 import './index.css'
 
-import {
+/* import {
   MobileLoginFormContainer,
   LoginPageImageContainer,
   LoginHeading,
@@ -22,7 +22,7 @@ import {
   DesktopLoginImageContainer,
   DesktopLoginImage,
   MobileLoginImage,
-} from './StyledComponents'
+} from './StyledComponents' */
 
 class Login extends Component {
   state = {
@@ -148,7 +148,7 @@ class Login extends Component {
               src="https://res.cloudinary.com/joker3748/image/upload/v1633445373/TastyKitchen/Frame_274hat_icon_c13yga.png"
               alt="website logo"
             />
-            <h1 className="desktop-app-heading">Tasty Kitchen</h1>
+            <h1 className="desktop-app-heading">Tasty Kitchens</h1>
             <h1 className="login-heading">Login</h1>
             <div className="input-field-container">{this.renderUsername()}</div>
             <div className="input-field-container">{this.renderPassword()}</div>

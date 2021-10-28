@@ -8,7 +8,7 @@ import './index.css'
 
 const OffersSlider = props => {
   const {sliderImagesList} = props
-  const {ImageUrl} = sliderImagesList
+  // const {ImageUrl} = sliderImagesList
   const settings = {
     dots: true,
     infinite: true,

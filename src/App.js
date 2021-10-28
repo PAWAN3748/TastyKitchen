@@ -11,7 +11,7 @@ import NotFound from './components/NotFound'
 
 import './App.css'
 
-const sortByOptions = [
+/* const sortByOptions = [
   {
     id: 0,
     displayText: 'Highest',
@@ -22,7 +22,7 @@ const sortByOptions = [
     displayText: 'Lowest',
     value: 'Lowest',
   },
-]
+] */
 
 class App extends Component {
   constructor(props) {
@@ -128,7 +128,7 @@ class App extends Component {
     const data = JSON.parse(localStorage.getItem('cartList')) */
 
     return (
-      <BrowserRouter>
+      <>
         <CartContext.Provider
           value={{
             cartList,
@@ -147,14 +147,14 @@ class App extends Component {
             <ProtectedRoute exact path="/payment_success" component={Payment} />
             <ProtectedRoute
               exact
-              path="/restaurants/:restrauntId"
+              path="/restaurant/:id"
               component={RestaurantDetails}
             />
             <Route path="/not-found" component={NotFound} />
             <Redirect to="not-found" />
           </Switch>
         </CartContext.Provider>
-      </BrowserRouter>
+      </>
     )
   }
 }

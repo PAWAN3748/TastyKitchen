@@ -1,4 +1,6 @@
 import {Component} from 'react'
+import Slider from 'react-slick'
+
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {BsFilterLeft, BsChevronLeft, BsChevronRight} from 'react-icons/bs'
@@ -7,6 +9,7 @@ import Header from '../Header'
 import Restaurants from '../Restaurants'
 import Footer from '../Footer'
 import './index.css'
+
 /* import {
   SlickContainer,
   PopularResHeading,
@@ -30,6 +33,7 @@ import './index.css'
   LoaderContainer,
   SliderContainer,
 } from './StyledComponents' */
+
 import OffersSlider from '../OffersSlider'
 
 const slackApiStatusConstants = {
@@ -67,7 +71,6 @@ class Home extends Component {
     restaurantApiStatus: restaurantApiStatusConstants.initial,
     activePage: 1,
     searchInput: '',
-    ListPageNumber: 1,
   }
 
   onClickLeftArrow = () => {
@@ -104,7 +107,7 @@ class Home extends Component {
     this.changeSortBy(event.target.value)
   }
 
-  getSlackImages = async event => {
+  getSlackImages = async () => {
     this.setState({slackApiStatus: slackApiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
     const slackApiUrl = 'https://apis.ccbp.in/restaurants-list/offers'
@@ -132,7 +135,7 @@ class Home extends Component {
     }
   }
 
-  getRestaurantData = async event => {
+  getRestaurantData = async () => {
     this.setState({
       restaurantApiStatus: restaurantApiStatusConstants.inProgress,
     })
@@ -142,7 +145,8 @@ class Home extends Component {
     const {searchInput, selectedSortByValue} = this.state
 
     const jwtToken = Cookies.get('jwt_token')
-    const RestaurantApiUrl = `https://apis.ccbp.in/restaurants-list?search=${searchInput}&offset=${offset}&limit=9&sort_by_rating=${selectedSortByValue}`
+    const RestaurantApiUrl = `https://apis.ccbp.in/restaurants-list?search=${searchInput}&offset=${offset}&limit=${LIMIT}&sort_by_rating=${selectedSortByValue}`
+    // https://apis.ccbp.in/restaurants-list?search=hotel&offset=0&limit=9&sort_by_rating=Lowest
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -185,7 +189,10 @@ class Home extends Component {
     const {slackData} = this.state
     return (
       <>
-        <div className="slider-container" testid="restaurants-offers-loader">
+        <div
+          className="slider-container"
+          data-testid="restaurants-offers-loader"
+        >
           <OffersSlider sliderImagesList={slackData} />
         </div>
       </>
@@ -196,7 +203,7 @@ class Home extends Component {
 
   renderSlackLoadingView = () => (
     <>
-      <div testid="loader" className="loader-container">
+      <div data-testid="restaurants-offers-loader" className="loader-container">
         <Loader type="TailSpin" color="#F7931E" height="50" width="50" />
       </div>
     </>
@@ -222,7 +229,7 @@ class Home extends Component {
 
     return (
       <>
-        <ul className="restaurant-list-container" testid="restaurant-item">
+        <ul className="restaurant-list-container" data-testid="restaurant-item">
           {restaurantData.map(each => (
             <Restaurants restaurant={each} key={each.id} />
           ))}
@@ -235,7 +242,7 @@ class Home extends Component {
 
   renderRestaurantLoadingView = () => (
     <>
-      <div className="loader-container" testid="loader">
+      <div className="restaurants-list-loader" data-testid="loader">
         <Loader type="TailSpin" color="#F7931E" height="50" width="50" />
       </div>
     </>
@@ -287,26 +294,30 @@ class Home extends Component {
             <h1 className="popular-res-heading">Popular Restaurants</h1>
             <div className="res-intro-sort-container">
               <p className="res-intro">
-                Select Your favorite restaurant special dish and make your day
-                happy..
+                Select Your favourite restaurant special dish and make your day
+                happy...
               </p>
               <div className="sort-by-container">
                 <BsFilterLeft className="sort-icon" />
-                <p className="sort-by">Sort by</p>
+                <p className="sort-by">Sort By</p>
                 <select
                   className="sort-by-select"
                   onChange={this.onChangeSort}
                   value={selectedSortByValue}
                 >
-                  {sortByOptions.map(eachOption => (
-                    <option
-                      className="sort-by-option"
-                      value={eachOption.value}
-                      key={eachOption.id}
-                    >
-                      {eachOption.displayText}
-                    </option>
-                  ))}
+                  <option
+                    className="sort-by-option"
+                    value={sortByOptions[1].value}
+                    selected
+                  >
+                    {sortByOptions[1].displayText}
+                  </option>
+                  <option
+                    className="sort-by-option"
+                    value={sortByOptions[0].value}
+                  >
+                    {sortByOptions[0].displayText}
+                  </option>
                 </select>
               </div>
             </div>
@@ -318,19 +329,22 @@ class Home extends Component {
                   className="arrow-button"
                   data-testid="pagination-left-button"
                   onClick={this.onClickLeftArrow}
-                  type="button"
+                  type="submit"
                 >
                   <BsChevronLeft className="left-arrow-icon" />
                 </button>
               </div>
-              <p className="active-page-number" testid="active-page-number">
+              <p
+                className="active-page-number"
+                data-testid="active-page-number"
+              >
                 {activePage} of 4
               </p>
               <div className="arrow-container">
                 <button
                   className="arrow-button"
                   onClick={this.onClickRightArrow}
-                  type="button"
+                  type="submit"
                   data-testid="pagination-right-button"
                 >
                   <BsChevronRight className="left-arrow-icon" />

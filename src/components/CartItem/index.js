@@ -1,7 +1,7 @@
 import {BiRupee} from 'react-icons/bi'
 
 import CartContext from '../../context/CartContext'
-import Counter from '../Counter'
+// import Counter from '../Counter'
 
 /* import {
   CartListItem,
@@ -36,11 +36,11 @@ const CartItem = props => (
       const {
         incrementCartItemQuantity,
         decrementCartItemQuantity,
-        cartList,
+        // cartList,
       } = value
 
       const totalPrice = foodCost * foodCount
-      const isZero = cartList.length === 0
+      // const isZero = cartList.length === 0
 
       const onIncrement = () => {
         incrementCartItemQuantity(foodId)
@@ -53,7 +53,11 @@ const CartItem = props => (
       return (
         <>
           <li className="cart-list-item">
-            <img className="cart-item-image" src={foodImageUrl} />
+            <img
+              className="cart-item-image"
+              src={foodImageUrl}
+              alt="foodItem"
+            />
             <div className="cart-item-details-container">
               <h1 className="Cart-item-list-heading">{foodName}</h1>
               <div className="cart-item-add-sub-container">
@@ -61,7 +65,7 @@ const CartItem = props => (
                   className="cart-item-add-sub-button"
                   type="button"
                   onClick={onDecrement}
-                  data-testid="decrement-quantity"
+                  testid="decrement-quantity"
                 >
                   -
                 </button>
@@ -72,7 +76,7 @@ const CartItem = props => (
                   className="cart-item-add-sub-button"
                   type="button"
                   onClick={onIncrement}
-                  data-testid="increment-quantity"
+                  testid="increment-quantity"
                 >
                   +
                 </button>

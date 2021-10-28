@@ -4,7 +4,8 @@ import {
   FaTwitter,
   FaFacebookSquare,
 } from 'react-icons/fa'
-import {
+
+/* import {
   FooterContainer,
   FooterLogo,
   FooterHeading,
@@ -16,7 +17,7 @@ import {
   TwitterIcon,
   FacebookIcon,
   ContactUs,
-} from './StyledComponents'
+} from './StyledComponents' */
 
 import './index.css'
 
@@ -37,11 +38,17 @@ const Footer = () => (
     <div className="social-apps-container">
       <FaPinterestSquare
         className="social-icon"
-        testid="pintrest-social-icon"
+        data-testid="pintrest-social-icon"
       />
-      <FaInstagram className="social-icon" testid="instagram-social-icon" />
-      <FaTwitter className="social-icon" testid="twitter-social-icon" />
-      <FaFacebookSquare className="social-icon" testid="facebook-social-icon" />
+      <FaInstagram
+        className="social-icon"
+        data-testid="instagram-social-icon"
+      />
+      <FaTwitter className="social-icon" data-testid="twitter-social-icon" />
+      <FaFacebookSquare
+        className="social-icon"
+        data-testid="facebook-social-icon"
+      />
     </div>
   </div>
 )

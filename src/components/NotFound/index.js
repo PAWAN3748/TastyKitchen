@@ -1,7 +1,8 @@
 import {Link} from 'react-router-dom'
 import Header from '../Header'
 import './index.css'
-import {
+
+/* import {
   NotFoundContainer,
   NotFoundHeading,
   NotFoundImage,
@@ -9,7 +10,7 @@ import {
   NotFoundHomeLink,
   NotFoundHomeButton,
   NotFoundTextDesktop,
-} from './StyledComponents'
+} from './StyledComponents' */
 
 const NotFound = () => (
   <>

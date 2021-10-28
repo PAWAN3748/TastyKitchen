@@ -3,7 +3,8 @@ import {Link, withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import {FaBars} from 'react-icons/fa'
 import {AiFillCloseCircle} from 'react-icons/ai'
-import {
+
+/* import {
   Nav,
   LogoAndAppNameContainer,
   HeaderLogo,
@@ -17,7 +18,8 @@ import {
   CloseButton,
   CloseMenuButton,
   DesktopMenuItemContainer,
-} from './StyledComponents'
+} from './StyledComponents' */
+
 import './index.css'
 
 class Header extends Component {
@@ -55,15 +57,19 @@ class Header extends Component {
     return (
       <>
         <nav className="header-nav-container">
-          <div className="logo-app-name-container">
+          <Link to="/" className="logo-app-name-container">
             <img
               className="header-logo"
               src="https://res.cloudinary.com/joker3748/image/upload/v1633445373/TastyKitchen/Frame_274hat_icon_c13yga.png"
               alt="website logo"
             />
-            <h1 className="header-app-heading">TastyKitchen</h1>
-          </div>
-          <button className="logo-button" onClick={this.onClickBarButton}>
+            <h1 className="header-app-heading">Tasty Kitchens</h1>
+          </Link>
+          <button
+            type="submit"
+            className="logo-button"
+            onClick={this.onClickBarButton}
+          >
             <FaBars className="bars" />
           </button>
           <ul className="desktop-menu-item-container">
@@ -75,7 +81,7 @@ class Header extends Component {
                   color: isHomeActive ? '#f7931e' : '#334155',
                 }}
               >
-                Home
+                <h1 className="header-home">Home</h1>
               </Link>
             </li>
             <li className="list-item" m onClick={this.onCartClick}>
@@ -86,11 +92,12 @@ class Header extends Component {
                   color: isCartActive ? '#f7931e' : '#334155',
                 }}
               >
-                Cart
+                <h1 className="header-home">Cart</h1>
               </Link>
             </li>
             <li className="list-item" m>
               <button
+                type="submit"
                 className="logout-button"
                 onClick={this.onClickLogoutButton}
               >
@@ -110,7 +117,7 @@ class Header extends Component {
                     color: isHomeActive ? '#f7931e' : '#334155',
                   }}
                 >
-                  Home
+                  <h1 className="header-home">Home</h1>
                 </Link>
               </li>
               <li className="list-item" onClick={this.onCartClick}>
@@ -121,11 +128,12 @@ class Header extends Component {
                     color: isCartActive ? '#f7931e' : '#334155',
                   }}
                 >
-                  Cart
+                  <h1 className="header-home">Home</h1>
                 </Link>
               </li>
               <li className="list-item">
                 <button
+                  type="submit"
                   className="logout-button"
                   onClick={this.onClickLogoutButton}
                 >
@@ -134,6 +142,7 @@ class Header extends Component {
               </li>
             </ul>
             <button
+              type="submit"
               className="close-menu-button"
               onClick={this.onClickBarButton}
             >

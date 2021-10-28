@@ -9,6 +9,7 @@ import Header from '../Header'
 import Footer from '../Footer'
 import Food from '../Food'
 import './index.css'
+
 /* import {
   ResItemBgContainer,
   ResItemImageContainer,
@@ -162,7 +163,11 @@ class RestaurantDetails extends Component {
         <Header />
         <div className="res-item0bg-container">
           <div className="res-item-details-image-container">
-            <img className="res-item-details-image" src={imageUrl} />
+            <img
+              className="res-item-details-image"
+              src={imageUrl}
+              alt="restaurant"
+            />
           </div>
           <div className="res-item-details-container">
             <h1 className="res-item-details-name">{name}</h1>

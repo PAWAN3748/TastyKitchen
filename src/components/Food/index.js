@@ -38,7 +38,6 @@ class Food extends Component {
           addCartItem,
           incrementCartItemQuantity,
           decrementCartItemQuantity,
-          saveLocalStorage,
         } = value
 
         const onClickCount = () => {
@@ -95,7 +94,7 @@ class Food extends Component {
 
   render() {
     const {food} = this.props
-    const {foodImageUrl, foodCost, foodType, foodId, foodName, rating} = food
+    const {foodImageUrl, foodCost, foodId, foodName, rating} = food
 
     const {isClicked} = this.state
 

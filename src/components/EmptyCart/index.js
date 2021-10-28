@@ -1,14 +1,14 @@
 import {Link} from 'react-router-dom'
 
 import Header from '../Header'
-import {
+/* import {
   EmptyContainer,
   NoOrders,
   OrderNowLink,
   AddSomething,
   OrderNowButton,
   EmptyCartImage,
-} from './StyledComponents'
+} from './StyledComponents' */
 
 import './index.css'
 

@@ -22,8 +22,8 @@ const Restaurants = props => {
 
   return (
     <>
-      <Link to={`/restaurants/${restrauntId}`} className="link-component">
-        <li className="each-restaurant">
+      <Link to={`/restaurant/${restrauntId}`} className="link-component">
+        <li className="each-restaurant" data-testid="restaurant-item">
           <div className="restaurant-details-container">
             <img
               className="restaurant-details-image"

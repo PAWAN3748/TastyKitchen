@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {AddOrSubContainer, AddOrSbButton, FoodCount} from './StyledComponents'
+// import {AddOrSubContainer, AddOrSbButton, FoodCount} from './StyledComponents'
 import CartContext from '../../context/CartContext'
 import './index.css'
 
@@ -11,7 +11,7 @@ class Counter extends Component {
   incrementAndDecrement = () => (
     <CartContext.Consumer>
       {value => {
-        const {addCartItem} = value
+        // const {addCartItem} = value
         const {newFood, onIncreaseFood, onDecreaseFood} = this.props
 
         /* const onCount = () => {

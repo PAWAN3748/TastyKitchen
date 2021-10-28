@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom'
 
 import {BsFillCheckCircleFill} from 'react-icons/bs'
+
 /* import {
   PaymentContainer,
   CheckIcon,
@@ -9,8 +10,10 @@ import {BsFillCheckCircleFill} from 'react-icons/bs'
   PaymentHomeButton,
   PaymentHomeLink,
 } from './StyledComponents' */
+
 import Header from '../Header'
 import './index.css'
+
 const Payment = () => (
   <>
     <Header />
