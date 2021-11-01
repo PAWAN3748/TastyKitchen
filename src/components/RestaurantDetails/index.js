@@ -10,29 +10,6 @@ import Footer from '../Footer'
 import Food from '../Food'
 import './index.css'
 
-/* import {
-  ResItemBgContainer,
-  ResItemImageContainer,
-  ResItemImage,
-  ResItemDetailsContainer,
-  ResItemName,
-  ResItemCuisine,
-  Location,
-  RatingStar,
-  RatingAndCostContainer,
-  RatingContainer,
-  ResRating,
-  StarContainer,
-  ReviewsCount,
-  CostContainer,
-  RupeeContainer,
-  Rupee,
-  Cost,
-  CostForTwo,
-  FoodDetailsContainer,
-  ResLoaderContainer,
-} from './StyledComponents' */
-
 const restaurantApiStatusConstants = {
   initial: 'INITIAL',
   success: 'SUCCESS',
@@ -90,7 +67,6 @@ class RestaurantDetails extends Component {
     }
     const response = await fetch(restaurantApiUrl, options)
     const fetchData = await response.json()
-    // console.log(fetchData)
     if (response.ok) {
       const restaurantData = this.updateRestaurantData(fetchData)
       const foodItemsData = fetchData.food_items.map(each =>
@@ -110,7 +86,10 @@ class RestaurantDetails extends Component {
 
   renderFoodLoadingView = () => (
     <>
-      <div className="res-loader-container" testid="loader">
+      <div
+        className="res-loader-container"
+        data-testid="restaurant-details-loader"
+      >
         <Loader type="TailSpin" color="#F7931E" height="50" width="50" />
       </div>
     </>
@@ -126,7 +105,7 @@ class RestaurantDetails extends Component {
           testid="restaurant-details-loader"
         >
           {foodItemsDataList.map(food => (
-            <Food food={food} key={food.id} />
+            <Food food={food} key={food.foodId} />
           ))}
         </ul>
       </>
@@ -148,7 +127,8 @@ class RestaurantDetails extends Component {
   }
 
   render() {
-    const {restaurantDetails} = this.state
+    const {restaurantDetails, foodItemsDataList} = this.state
+
     const {
       imageUrl,
       name,
@@ -161,7 +141,7 @@ class RestaurantDetails extends Component {
     return (
       <>
         <Header />
-        <div className="res-item0bg-container">
+        <div className="res-item0bg-container" data-testid="restaurant-item">
           <div className="res-item-details-image-container">
             <img
               className="res-item-details-image"

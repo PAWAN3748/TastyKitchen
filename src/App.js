@@ -147,7 +147,7 @@ class App extends Component {
             <ProtectedRoute exact path="/payment_success" component={Payment} />
             <ProtectedRoute
               exact
-              path="/restaurant/:id"
+              path="/restaurant/:restrauntId"
               component={RestaurantDetails}
             />
             <Route path="/not-found" component={NotFound} />
@@ -158,5 +158,25 @@ class App extends Component {
     )
   }
 }
+
+/*  return (
+      <>
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute exact path="/cart" component={Cart} />
+          <ProtectedRoute exact path="/payment_success" component={Payment} />
+          <ProtectedRoute
+            exact
+            path="/restaurant/:restrauntId"
+            component={RestaurantDetails}
+          />
+          <Route path="/not-found" component={NotFound} />
+          <Redirect to="not-found" />
+        </Switch>
+      </>
+    )
+  }
+} */
 
 export default App

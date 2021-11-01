@@ -13,3 +13,8 @@
     width: 90vw !important;
   }
 }
+.slack-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+}

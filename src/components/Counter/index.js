@@ -11,14 +11,7 @@ class Counter extends Component {
   incrementAndDecrement = () => (
     <CartContext.Consumer>
       {value => {
-        // const {addCartItem} = value
         const {newFood, onIncreaseFood, onDecreaseFood} = this.props
-
-        /* const onCount = () => {
-          const {foodCount} = this.state
-          onIncreaseFood(foodCount)
-           console.log(foodCount)
-        } */
 
         const onIncrement = () => {
           this.setState(
@@ -51,19 +44,19 @@ class Counter extends Component {
             <button
               className="add-Sub-button"
               type="button"
-              testid="decrement-count"
+              data-testid="decrement-count"
               onClick={onDecrement}
             >
               -
             </button>
-            <p className="counter-food-count" testid="active-count">
+            <p className="counter-food-count" data-testid="active-count">
               {foodCount}
             </p>
             <button
               className="add-Sub-button"
               type="button"
               onClick={onIncrement}
-              testid="increment-count"
+              data-testid="increment-count"
             >
               +
             </button>

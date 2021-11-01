@@ -19,13 +19,11 @@ const OffersSlider = props => {
   }
 
   return (
-    <div testid="restaurants-list-loader">
-      <Slider {...settings}>
-        {sliderImagesList.map(eachSlid => (
-          <OfferItem key={eachSlid.id} offerDetails={eachSlid} />
-        ))}
-      </Slider>
-    </div>
+    <Slider {...settings}>
+      {sliderImagesList.map(eachSlid => (
+        <OfferItem key={eachSlid.id} offerDetails={eachSlid} />
+      ))}
+    </Slider>
   )
 }
 

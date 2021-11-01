@@ -1,5 +1,6 @@
+import {Redirect} from 'react-router-dom'
 import {Component} from 'react'
-import Slider from 'react-slick'
+import {Slider} from 'react-slick'
 
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
@@ -9,30 +10,6 @@ import Header from '../Header'
 import Restaurants from '../Restaurants'
 import Footer from '../Footer'
 import './index.css'
-
-/* import {
-  SlickContainer,
-  PopularResHeading,
-  AllRestaurantContainer,
-  ResIntroSortContainer,
-  ResIntro,
-  HrLine,
-  SortByContainer,
-  SortIcon,
-  SortBy,
-  SortBySelect,
-  SortByOption,
-  RestaurantListContainer,
-  ActivePageContainer,
-  LeftArrowIcon,
-  ArrowContainer,
-  ArrowBButton,
-  RightArrowIcon,
-  ActivePage,
-  MainContainer,
-  LoaderContainer,
-  SliderContainer,
-} from './StyledComponents' */
 
 import OffersSlider from '../OffersSlider'
 
@@ -67,7 +44,7 @@ class Home extends Component {
     slackApiStatus: slackApiStatusConstants.initial,
     slackData: [],
     restaurantData: [],
-    selectedSortByValue: sortByOptions[0].value,
+    selectedSortByValue: sortByOptions[1].value,
     restaurantApiStatus: restaurantApiStatusConstants.initial,
     activePage: 1,
     searchInput: '',
@@ -187,12 +164,10 @@ class Home extends Component {
 
   renderSlackSuccessView = () => {
     const {slackData} = this.state
+    console.log(slackData)
     return (
       <>
-        <div
-          className="slider-container"
-          data-testid="restaurants-offers-loader"
-        >
+        <div className="slider-container">
           <OffersSlider sliderImagesList={slackData} />
         </div>
       </>
@@ -242,7 +217,7 @@ class Home extends Component {
 
   renderRestaurantLoadingView = () => (
     <>
-      <div className="restaurants-list-loader" data-testid="loader">
+      <div className="loader-container" data-testid="restaurants-list-loader">
         <Loader type="TailSpin" color="#F7931E" height="50" width="50" />
       </div>
     </>
@@ -263,28 +238,12 @@ class Home extends Component {
     }
   }
 
-  /* <div className="sort-by-container">
-        <BsFilterRight className="sort-by-icon" />
-        <p className="sort-by">Sort by</p>
-        <select
-          className="sort-by-select"
-          value={activeOptionId}
-          onChange={onChangeSortby}
-        >
-          {sortbyOptions.map(eachOption => (
-            <option
-              key={eachOption.optionId}
-              value={eachOption.optionId}
-              className="select-option"
-            >
-              {eachOption.displayText}
-            </option>
-          ))}
-        </select>
-      </div> */
-
   render() {
     const {selectedSortByValue, activePage} = this.state
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken === undefined) {
+      return <Redirect to="/login" />
+    }
     return (
       <>
         <Header />
@@ -338,8 +297,9 @@ class Home extends Component {
                 className="active-page-number"
                 data-testid="active-page-number"
               >
-                {activePage} of 4
+                {activePage}
               </p>
+              <p className="active-page-number-text">of 4</p>
               <div className="arrow-container">
                 <button
                   className="arrow-button"

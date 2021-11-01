@@ -48,11 +48,6 @@
   margin-top: 0px;
 }
 
-@media screen and (min-width: 768px) {
-  .not-found-text {
-    display: none;
-  }
-}
 .not-found-text-desktop {
   font-family: DM Sans;
   font-size: 20px;
@@ -95,4 +90,10 @@
   margin-bottom: 40px;
   cursor: pointer;
   border: none;
+}
+
+@media screen and (max-width: 576px) {
+  .break-line {
+    display: none;
+  }
 }

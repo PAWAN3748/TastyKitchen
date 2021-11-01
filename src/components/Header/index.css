@@ -6,7 +6,6 @@
   padding: 15px;
   align-items: center;
   padding-bottom: 0px;
-  background-color: #f8fafc;
 }
 
 .logo-app-name-container {
@@ -68,12 +67,6 @@
   width: 300px;
 }
 
-@media screen and (max-width: 768px) {
-  .desktop-menu-item-container {
-    display: none;
-  }
-}
-
 .list-item {
   font-size: 18px;
   font-family: 'DM Sans';
@@ -128,7 +121,11 @@
   border: none;
   cursor: pointer;
 }
-
+@media screen and (min-width: 768px) {
+  .close-button-container {
+    display: none;
+  }
+}
 .close-icon {
   height: 25px;
   width: 25px;
@@ -142,4 +139,41 @@
   line-height: 26px;
   letter-spacing: -0.35555556416511536px;
   text-align: left;
+}
+
+.header-menu-container {
+  display: flex;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+  justify-content: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-container {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+.mobile-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-header-section {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .desktop-header-section {
+    display: none;
+  }
 }

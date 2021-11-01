@@ -5,9 +5,9 @@ const OfferItem = props => {
   const {imageUrl} = offerDetails
 
   return (
-    <div className="offers-container">
+    <li className="offers-container">
       <img src={imageUrl} alt="offer" className="offers-image" />
-    </div>
+    </li>
   )
 }
 

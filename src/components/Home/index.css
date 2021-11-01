@@ -141,6 +141,16 @@
   margin-right: 10px;
 }
 
+.active-page-number-text {
+  color: #334155;
+  font-size: 20px;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+
 .hr-line {
   width: 90vw;
   background-color: #cbd2d9;

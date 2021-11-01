@@ -2,21 +2,6 @@ import {Component} from 'react'
 import {BiRupee} from 'react-icons/bi'
 import {BsStarFill} from 'react-icons/bs'
 
-/* import {
-  FoodListItemContainer,
-  FoodItemImageContainer,
-  FoodItemImage,
-  FoodItemDetailsContainer,
-  FoodHeading,
-  FoodPrice,
-  RatingStar,
-  FoodRatingContainer,
-  FoodRating,
-  FoodAddButton,
-  Rupee,
-  PriceContainer,
-} from './StyledComponents' */
-
 import Counter from '../Counter'
 import CartContext from '../../context/CartContext'
 import './index.css'
@@ -100,7 +85,7 @@ class Food extends Component {
 
     return (
       <>
-        <li className="food-list-item-container" testid="foodItem">
+        <li className="food-list-item-container" data-testid="foodItem">
           <div className="food-item-image-container">
             <img
               className="food-item-image"
@@ -112,7 +97,8 @@ class Food extends Component {
             <h1 className="food-heading">{foodName}</h1>
             <div className="price-container">
               <BiRupee className="rupee-icon" />
-              <p className="food-price">{foodCost}.00</p>
+              <p className="food-price">{foodCost}</p>
+              <p className="food-price">.00</p>
             </div>
             <div className="food-rating-container">
               <BsStarFill className="food-rating-star" />

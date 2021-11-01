@@ -9,7 +9,8 @@ const Cart = () => (
   <CartContext.Consumer>
     {value => {
       const {cartList} = value
-      // const data = JSON.parse(localStorage.getItem('cartList'))
+      const data = JSON.parse(localStorage.getItem('cartData'))
+      console.log(data)
       const showEmptyView = cartList.length === 0
 
       return (
