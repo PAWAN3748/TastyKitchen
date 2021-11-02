@@ -160,9 +160,9 @@ class RestaurantDetails extends Component {
                   <p className="res-item-details-rating">{rating}</p>
                 </div>
                 <div className="res-rating-text-container">
-                  <h1 className="res-item-details-review-count">
+                  <p className="res-item-details-review-count">
                     {reviewsCount}
-                  </h1>
+                  </p>
                   <p className="res-item-details-review-count-text">
                     + Ratings
                   </p>

@@ -204,7 +204,7 @@ class Home extends Component {
 
     return (
       <>
-        <ul className="restaurant-list-container" data-testid="restaurant-item">
+        <ul className="restaurant-list-container">
           {restaurantData.map(each => (
             <Restaurants restaurant={each} key={each.id} />
           ))}

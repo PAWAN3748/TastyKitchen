@@ -68,7 +68,7 @@ class Food extends Component {
                 value={foodId}
                 onClick={onClickAdd}
               >
-                ADD
+                Add
               </button>
             )}
           </>
