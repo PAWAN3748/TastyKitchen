@@ -16,6 +16,12 @@
   padding-right: 25px;
 }
 
+@media screen and (min-width: 768px) {
+  .total-order-price {
+    margin-right: 32px;
+  }
+}
+
 .total-order-text {
   font-family: Roboto;
   font-size: 20px;
@@ -81,4 +87,10 @@
   margin-bottom: 40px;
   cursor: pointer;
   border: none;
+}
+
+@media screen and (min-width: 768px) {
+  .place-order-button {
+    margin-right: 32px;
+  }
 }

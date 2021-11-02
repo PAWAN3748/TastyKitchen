@@ -1,23 +1,6 @@
 import {BiRupee} from 'react-icons/bi'
 
 import CartContext from '../../context/CartContext'
-// import Counter from '../Counter'
-
-/* import {
-  CartListItem,
-  CartListHeading,
-  CartItemImage,
-  CartItemDetailsContainer,
-  AddOrSbButton,
-  FoodCount,
-  AddOrSubContainer,
-  FoodPrice,
-  CartHrLine,
-  Rupee,
-  PriceContainer,
-  TotalOrderPrice,
-  TotalOrderText,
-} from './StyledComponents' */
 
 import './index.css'
 
@@ -52,7 +35,7 @@ const CartItem = props => (
 
       return (
         <>
-          <li className="cart-list-item">
+          <li className="cart-list-item" data-testid="cartItem">
             <img
               className="cart-item-image"
               src={foodImageUrl}
@@ -65,25 +48,31 @@ const CartItem = props => (
                   className="cart-item-add-sub-button"
                   type="button"
                   onClick={onDecrement}
-                  testid="decrement-quantity"
+                  data-testid="decrement-quantity"
                 >
                   -
                 </button>
-                <p className="cart-item-food-count" testid="item-quantity">
+                <p className="cart-item-food-count" data-testid="item-quantity">
                   {foodCount}
                 </p>
                 <button
                   className="cart-item-add-sub-button"
                   type="button"
                   onClick={onIncrement}
-                  testid="increment-quantity"
+                  data-testid="increment-quantity"
                 >
                   +
                 </button>
               </div>
               <div className="cart-item-price-container">
                 <BiRupee className="cart-item-rupee-icon" />
-                <p className="cart-item-food-total-price">{totalPrice}.00</p>
+                <p
+                  className="cart-item-food-total-price"
+                  data-testid="total-price"
+                >
+                  {totalPrice}
+                </p>
+                <p className="cart-item-food-total-price">.00</p>
               </div>
             </div>
           </li>

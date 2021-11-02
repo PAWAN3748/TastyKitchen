@@ -192,10 +192,27 @@
 
 @media screen and (min-width: 768px) {
   .res-item-details-review-count {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
+.res-item-details-review-count-text {
+  font-family: DM Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
 
+@media screen and (min-width: 768px) {
+  .res-item-details-review-count-text {
+    font-size: 16px;
+  }
+}
 .res-item-details-cost-container {
   display: flex;
   flex-direction: column;
@@ -259,4 +276,11 @@
   .res-item-details-cost-for-two-value {
     font-size: 14px;
   }
+}
+
+.res-rating-text-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

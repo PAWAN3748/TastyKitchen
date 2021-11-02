@@ -159,9 +159,14 @@ class RestaurantDetails extends Component {
                   <BsStarFill className="res-item-details-star" />
                   <p className="res-item-details-rating">{rating}</p>
                 </div>
-                <p className="res-item-details-review-count">
-                  {reviewsCount}+ Ratings
-                </p>
+                <div className="res-rating-text-container">
+                  <h1 className="res-item-details-review-count">
+                    {reviewsCount}
+                  </h1>
+                  <p className="res-item-details-review-count-text">
+                    + Ratings
+                  </p>
+                </div>
               </div>
               <div className="res-item-details-cost-container">
                 <div className="res-item-details-rupee-container">

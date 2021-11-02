@@ -46,8 +46,8 @@ const CartListView = () => (
           </ul>
           <hr className="cart-hr-line" />
           <div className="total-order-price">
-            <p className="total-order-text">Order Total : </p>
-            <div className="price-container" testid="total-price">
+            <h1 className="total-order-text">Order Total: </h1>
+            <div className="price-container" data-testid="total-price">
               <BiRupee clasName="cart-list-rupee" />
               <p className="total-price" testid="total-price">
                 {TotalOrderAmount}.00
