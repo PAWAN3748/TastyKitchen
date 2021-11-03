@@ -82,6 +82,7 @@ class Home extends Component {
 
   onChangeSort = event => {
     this.changeSortBy(event.target.value)
+    // console.log(event.target.value)
   }
 
   getSlackImages = async () => {
@@ -121,6 +122,8 @@ class Home extends Component {
     const offset = (activePage - 1) * LIMIT
     const {searchInput, selectedSortByValue} = this.state
 
+    console.log('activePage:', activePage, 'select:', selectedSortByValue)
+
     const jwtToken = Cookies.get('jwt_token')
     const RestaurantApiUrl = `https://apis.ccbp.in/restaurants-list?search=${searchInput}&offset=${offset}&limit=${LIMIT}&sort_by_rating=${selectedSortByValue}`
     // https://apis.ccbp.in/restaurants-list?search=hotel&offset=0&limit=9&sort_by_rating=Lowest
@@ -132,6 +135,7 @@ class Home extends Component {
     }
     const response = await fetch(RestaurantApiUrl, options)
     const fetchData = await response.json()
+    // console.log(fetchData)
     if (response.ok) {
       const updatedData = fetchData.restaurants.map(each => ({
         costForTwo: each.cost_for_two,
@@ -151,7 +155,6 @@ class Home extends Component {
         ratingText: each.user_rating.rating_text,
         totalReviews: each.user_rating.total_reviews,
       }))
-      // console.log(updatedData.name)
 
       this.setState({
         restaurantApiStatus: restaurantApiStatusConstants.success,
@@ -164,7 +167,7 @@ class Home extends Component {
 
   renderSlackSuccessView = () => {
     const {slackData} = this.state
-    console.log(slackData)
+    // console.log(slackData)
     return (
       <>
         <div className="slider-container">

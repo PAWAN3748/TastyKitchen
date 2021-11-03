@@ -67,7 +67,7 @@
   width: 45%;
 }
 
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 768px) {
   .res-name-rating-container {
     justify-content: space-around;
   }
@@ -142,4 +142,15 @@
   margin-left: 10px;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.res-total-reviews-text-container {
+  font-family: DM Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #334155;
 }

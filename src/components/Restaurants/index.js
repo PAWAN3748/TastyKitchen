@@ -18,7 +18,14 @@ import './index.css'
 
 const Restaurants = props => {
   const {restaurant} = props
-  const {name, rating, cuisine, imageUrl, restrauntId} = restaurant
+  const {
+    name,
+    rating,
+    cuisine,
+    imageUrl,
+    totalReviews,
+    restrauntId,
+  } = restaurant
 
   return (
     <>
@@ -32,6 +39,9 @@ const Restaurants = props => {
               <div className="res-star-rating-container">
                 <BsFillStarFill className="res-star" />
                 <p className="res-rating">{rating}</p>
+                <h1 className="res-total-reviews-text-container">
+                  ({totalReviews} ratings)
+                </h1>
               </div>
             </div>
           </div>

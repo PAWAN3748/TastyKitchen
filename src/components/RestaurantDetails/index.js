@@ -141,7 +141,7 @@ class RestaurantDetails extends Component {
     return (
       <>
         <Header />
-        <div className="res-item0bg-container" data-testid="restaurant-item">
+        <div className="res-item0bg-container">
           <div className="res-item-details-image-container">
             <img
               className="res-item-details-image"
@@ -163,9 +163,9 @@ class RestaurantDetails extends Component {
                   <p className="res-item-details-review-count">
                     {reviewsCount}
                   </p>
-                  <p className="res-item-details-review-count-text">
+                  <h1 className="res-item-details-review-count-text">
                     + Ratings
-                  </p>
+                  </h1>
                 </div>
               </div>
               <div className="res-item-details-cost-container">
