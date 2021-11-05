@@ -31,6 +31,8 @@ const CartListView = () => (
         TotalOrderAmount += each.foodCount * each.foodCost
       })
 
+      const orderAmount = TotalOrderAmount.toFixed(2)
+
       const onClickPlaceOrder = () => {
         placeOrderButton()
       }
@@ -50,7 +52,7 @@ const CartListView = () => (
             <div className="price-container" data-testid="total-price">
               <BiRupee clasName="cart-list-rupee" />
               <p className="total-price" testid="total-price">
-                {TotalOrderAmount}.00
+                {orderAmount}
               </p>
             </div>
           </div>

@@ -1,6 +1,8 @@
 import {Redirect} from 'react-router-dom'
 import {Component} from 'react'
-import {Slider} from 'react-slick'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
@@ -168,14 +170,42 @@ class Home extends Component {
   renderSlackSuccessView = () => {
     const {slackData} = this.state
     // console.log(slackData)
+    const settings = {
+      dots: true,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      position: 'absolute',
+      hover: true,
+    }
     return (
       <>
-        <div className="slider-container">
-          <OffersSlider sliderImagesList={slackData} />
-        </div>
+        <ul className="Offers-main">
+          <div className="Offers-list">
+            <Slider {...settings}>
+              {slackData.map(each => (
+                <li key={each.id}>
+                  <img
+                    className="offers-image"
+                    alt="offer"
+                    src={each.imageUrl}
+                  />
+                </li>
+              ))}
+            </Slider>
+          </div>
+        </ul>
       </>
     )
   }
+
+  /* <Slider {...settings}>
+            {slackData.map(each => (
+              <li key={each.id} className="offers-container">
+                <img className="offers-image" alt="offer" src={each.imageUrl} />
+              </li>
+            ))}
+          </Slider> */
 
   renderSlackFailureView = () => {}
 

@@ -22,7 +22,7 @@ const CartItem = props => (
         // cartList,
       } = value
 
-      const totalPrice = foodCost * foodCount
+      const totalPrice = (foodCost * foodCount).toFixed(2)
       // const isZero = cartList.length === 0
 
       const onIncrement = () => {
@@ -72,7 +72,6 @@ const CartItem = props => (
                 >
                   {totalPrice}
                 </p>
-                <p className="cart-item-food-total-price">.00</p>
               </div>
             </div>
           </li>
