@@ -96,37 +96,6 @@ class RestaurantDetails extends Component {
   )
 
   renderFoodSuccessView = () => {
-    const {foodItemsDataList} = this.state
-
-    return (
-      <>
-        <ul
-          className="food-details-container"
-          testid="restaurant-details-loader"
-        >
-          {foodItemsDataList.map(food => (
-            <Food food={food} key={food.foodId} />
-          ))}
-        </ul>
-      </>
-    )
-  }
-
-  renderFoodItems = () => {
-    const {restaurantApiStatus} = this.state
-    switch (restaurantApiStatus) {
-      case restaurantApiStatusConstants.success:
-        return this.renderFoodSuccessView()
-      case restaurantApiStatusConstants.failure:
-        return this.renderFoodFailureView()
-      case restaurantApiStatusConstants.inProgress:
-        return this.renderFoodLoadingView()
-      default:
-        return null
-    }
-  }
-
-  render() {
     const {restaurantDetails, foodItemsDataList} = this.state
 
     const {
@@ -138,9 +107,9 @@ class RestaurantDetails extends Component {
       rating,
       costForTwo,
     } = restaurantDetails
+
     return (
       <>
-        <Header />
         <div className="res-item0bg-container">
           <div className="res-item-details-image-container">
             <img
@@ -180,6 +149,35 @@ class RestaurantDetails extends Component {
             </div>
           </div>
         </div>
+        <ul className="food-details-container">
+          {foodItemsDataList.map(food => (
+            <Food food={food} key={food.foodId} />
+          ))}
+        </ul>
+      </>
+    )
+  }
+
+  renderFoodItems = () => {
+    const {restaurantApiStatus} = this.state
+    switch (restaurantApiStatus) {
+      case restaurantApiStatusConstants.success:
+        return this.renderFoodSuccessView()
+      case restaurantApiStatusConstants.failure:
+        return this.renderFoodFailureView()
+      case restaurantApiStatusConstants.inProgress:
+        return this.renderFoodLoadingView()
+      default:
+        return null
+    }
+  }
+
+  render() {
+    const {restaurantDetails, foodItemsDataList} = this.state
+
+    return (
+      <>
+        <Header />
         {this.renderFoodItems()}
         <Footer />
       </>

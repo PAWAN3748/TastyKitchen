@@ -11,25 +11,17 @@ import NotFound from './components/NotFound'
 
 import './App.css'
 
-/* const sortByOptions = [
-  {
-    id: 0,
-    displayText: 'Highest',
-    value: 'Highest',
-  },
-  {
-    id: 2,
-    displayText: 'Lowest',
-    value: 'Lowest',
-  },
-] */
-
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       cartList: JSON.parse(localStorage.getItem('cartData')) || [],
     }
+  }
+
+  getData = () => {
+    const locaList = JSON.parse(localStorage.getItem('cartData'))
+    this.setState({cartList: locaList})
   }
 
   addCartItem = food => {
@@ -53,12 +45,14 @@ class App extends Component {
           }),
         }),
         () => {
-          localStorage.setItem('cartData', JSON.stringify(cartList))
+          this.saveLocalStorage()
         },
       )
     } else {
       const updatedCartList = [...cartList, food]
-      this.setState({cartList: updatedCartList})
+      this.setState({cartList: updatedCartList}, () => {
+        this.saveLocalStorage()
+      })
     }
   }
 
@@ -124,8 +118,7 @@ class App extends Component {
 
   render() {
     const {cartList} = this.state
-    /* localStorage.setItem('cartList', JSON.stringify(cartList))
-    const data = JSON.parse(localStorage.getItem('cartList')) */
+    localStorage.setItem('cartData', JSON.stringify(cartList))
 
     return (
       <>
@@ -138,6 +131,7 @@ class App extends Component {
             decrementCartItemQuantity: this.decrementCartItemQuantity,
             saveLocalStorage: this.saveLocalStorage,
             placeOrderButton: this.placeOrderButton,
+            getData: this.getData,
           }}
         >
           <Switch>
@@ -158,25 +152,5 @@ class App extends Component {
     )
   }
 }
-
-/*  return (
-      <>
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <ProtectedRoute exact path="/" component={Home} />
-          <ProtectedRoute exact path="/cart" component={Cart} />
-          <ProtectedRoute exact path="/payment_success" component={Payment} />
-          <ProtectedRoute
-            exact
-            path="/restaurant/:restrauntId"
-            component={RestaurantDetails}
-          />
-          <Route path="/not-found" component={NotFound} />
-          <Redirect to="not-found" />
-        </Switch>
-      </>
-    )
-  }
-} */
 
 export default App

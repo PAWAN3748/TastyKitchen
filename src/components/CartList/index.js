@@ -5,21 +5,6 @@ import CartContext from '../../context/CartContext'
 import CartItem from '../CartItem'
 import Footer from '../Footer'
 
-/*
-import {
-  CartListItemContainer,
-  CartHrLine,
-  TotalOrderPrice,
-  TotalOrderText,
-  TotalPrice,
-  PriceContainer,
-  Rupee,
-  PlaceOrderButton,
-  LinkPlaceOrder,
-} from './StyledComponents'
-
-*/
-
 import './index.css'
 
 const CartListView = () => (
@@ -37,21 +22,22 @@ const CartListView = () => (
         placeOrderButton()
       }
 
-      const data = JSON.parse(localStorage.getItem('cartList'))
+      const localList = JSON.parse(localStorage.getItem('cartData'))
+      console.log(localList, 'local')
 
       return (
         <>
           <ul className="cart-list-item-container">
-            {cartList.map(each => (
+            {localList.map(each => (
               <CartItem key={each.id} cartItemDetails={each} />
             ))}
           </ul>
           <hr className="cart-hr-line" />
           <div className="total-order-price">
             <h1 className="total-order-text">Order Total: </h1>
-            <div className="price-container" data-testid="total-price">
+            <div className="price-container">
               <BiRupee clasName="cart-list-rupee" />
-              <p className="total-price" testid="total-price">
+              <p className="total-price" data-testid="total-price">
                 {orderAmount}
               </p>
             </div>

@@ -65,12 +65,15 @@ class Home extends Component {
   }
 
   onClickRightArrow = () => {
-    this.setState(
-      prevState => ({
-        activePage: prevState.activePage + 1,
-      }),
-      this.getRestaurantData,
-    )
+    const {activePage} = this.state
+    if (activePage < 4) {
+      this.setState(
+        prevState => ({
+          activePage: prevState.activePage + 1,
+        }),
+        this.getRestaurantData,
+      )
+    }
   }
 
   componentDidMount = () => {
@@ -129,6 +132,8 @@ class Home extends Component {
     const jwtToken = Cookies.get('jwt_token')
     const RestaurantApiUrl = `https://apis.ccbp.in/restaurants-list?search=${searchInput}&offset=${offset}&limit=${LIMIT}&sort_by_rating=${selectedSortByValue}`
     // https://apis.ccbp.in/restaurants-list?search=hotel&offset=0&limit=9&sort_by_rating=Lowest
+    // https://apis.ccbp.in/restaurants-list?offset=${offset}&limit=${limit}&sort_by_rating=${selectedSortByValue}
+    // https://apis.ccbp.in/restaurants-list?search=${searchInput}&offset=${offset}&limit=${LIMIT}&sort_by_rating=${selectedSortByValue}
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -321,7 +326,7 @@ class Home extends Component {
                   className="arrow-button"
                   data-testid="pagination-left-button"
                   onClick={this.onClickLeftArrow}
-                  type="submit"
+                  type="button"
                 >
                   <BsChevronLeft className="left-arrow-icon" />
                 </button>
@@ -332,12 +337,11 @@ class Home extends Component {
               >
                 {activePage}
               </p>
-              <p className="active-page-number-text">of 4</p>
               <div className="arrow-container">
                 <button
                   className="arrow-button"
                   onClick={this.onClickRightArrow}
-                  type="submit"
+                  type="button"
                   data-testid="pagination-right-button"
                 >
                   <BsChevronRight className="left-arrow-icon" />
