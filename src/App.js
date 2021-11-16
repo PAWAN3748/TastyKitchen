@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {Route, Switch, Redirect, BrowserRouter} from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
 import Login from './components/Login'
 import ProtectedRoute from './components/ProtectedRoute'
 import Home from './components/Home'
@@ -116,15 +116,59 @@ class App extends Component {
     this.setState({cartList: []})
   }
 
+  /* incrementCartItemQuantity = id => {
+    const localList = JSON.parse(localStorage.getItem('cartData'))
+    const newData = localList.map(eachCartItem => {
+      if (id === eachCartItem.foodId) {
+        const updatedQuantity = eachCartItem.foodCount + 1
+        return {...eachCartItem, foodCount: updatedQuantity}
+      }
+      return eachCartItem
+    })
+    localStorage.setItem('cartData', JSON.stringify(newData))
+    this.setState({cartList: newData})
+  }
+
+  decrementCartItemQuantity = id => {
+    const localList = JSON.parse(localStorage.getItem('cartData'))
+
+    const foodObject = localList.find(
+      eachCartItem => eachCartItem.foodId === id,
+    )
+    if (foodObject.foodCount > 1) {
+      const newData = localList.map(eachCartItem => {
+        if (id === eachCartItem.foodId) {
+          const updatedQuantity = eachCartItem.foodCount - 1
+          return {...eachCartItem, foodCount: updatedQuantity}
+        }
+        return eachCartItem
+      })
+      localStorage.setItem('cartData', JSON.stringify(newData))
+      this.setState({cartList: newData})
+    } else {
+      this.removeCartItem(id)
+    }
+  }
+
+  removeCartItem = id => {
+    const localList = JSON.parse(localStorage.getItem('cartData'))
+    const updatedCartList = localList.filter(
+      eachCartItem => eachCartItem.foodId !== id,
+    )
+    localStorage.setItem('cartData', JSON.stringify(updatedCartList))
+    this.setState({cartList: updatedCartList})
+  } */
+
   render() {
     const {cartList} = this.state
     localStorage.setItem('cartData', JSON.stringify(cartList))
+    const parsedData = JSON.parse(localStorage.getItem('cartData'))
 
     return (
       <>
         <CartContext.Provider
           value={{
-            cartList,
+            cartList: parsedData,
             addCartItem: this.addCartItem,
             removeCartItem: this.removeCartItem,
             incrementCartItemQuantity: this.incrementCartItemQuantity,

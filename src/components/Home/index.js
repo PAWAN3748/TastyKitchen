@@ -49,7 +49,6 @@ class Home extends Component {
     selectedSortByValue: sortByOptions[1].value,
     restaurantApiStatus: restaurantApiStatusConstants.initial,
     activePage: 1,
-    searchInput: '',
   }
 
   onClickLeftArrow = () => {
@@ -125,15 +124,10 @@ class Home extends Component {
     const LIMIT = 9
     const {activePage} = this.state
     const offset = (activePage - 1) * LIMIT
-    const {searchInput, selectedSortByValue} = this.state
-
-    console.log('activePage:', activePage, 'select:', selectedSortByValue)
+    const {selectedSortByValue} = this.state
 
     const jwtToken = Cookies.get('jwt_token')
-    const RestaurantApiUrl = `https://apis.ccbp.in/restaurants-list?search=${searchInput}&offset=${offset}&limit=${LIMIT}&sort_by_rating=${selectedSortByValue}`
-    // https://apis.ccbp.in/restaurants-list?search=hotel&offset=0&limit=9&sort_by_rating=Lowest
-    // https://apis.ccbp.in/restaurants-list?offset=${offset}&limit=${limit}&sort_by_rating=${selectedSortByValue}
-    // https://apis.ccbp.in/restaurants-list?search=${searchInput}&offset=${offset}&limit=${LIMIT}&sort_by_rating=${selectedSortByValue}
+    const RestaurantApiUrl = `https://apis.ccbp.in/restaurants-list?offset=${offset}&limit=${LIMIT}&sort_by_rating=${selectedSortByValue}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -142,7 +136,7 @@ class Home extends Component {
     }
     const response = await fetch(RestaurantApiUrl, options)
     const fetchData = await response.json()
-    // console.log(fetchData)
+    // console.log(fetch)
     if (response.ok) {
       const updatedData = fetchData.restaurants.map(each => ({
         costForTwo: each.cost_for_two,
@@ -174,7 +168,6 @@ class Home extends Component {
 
   renderSlackSuccessView = () => {
     const {slackData} = this.state
-    // console.log(slackData)
     const settings = {
       dots: true,
       infinite: true,

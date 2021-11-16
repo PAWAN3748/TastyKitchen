@@ -7,8 +7,7 @@ import CartListView from '../CartList'
 
 const Cart = () => (
   <CartContext.Consumer>
-    {value => {
-      const {cartList, getData} = value
+    {() => {
       const localList = JSON.parse(localStorage.getItem('cartData'))
       const formattedList = localList === null ? [] : localList
       const showEmptyView = formattedList.length === 0
@@ -24,5 +23,20 @@ const Cart = () => (
     }}
   </CartContext.Consumer>
 )
+
+/* const Cart = () => {
+  const localList = JSON.parse(localStorage.getItem('cartData'))
+  const formattedList = localList === null ? [] : localList
+  const showEmptyView = formattedList.length === 0
+
+  return (
+    <>
+      <Header />
+      <div className="cart-container">
+        {showEmptyView ? <EmptyCart /> : <CartListView />}
+      </div>
+    </>
+  )
+} */
 
 export default Cart

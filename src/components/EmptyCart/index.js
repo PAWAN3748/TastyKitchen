@@ -1,15 +1,5 @@
 import {Link} from 'react-router-dom'
 
-import Header from '../Header'
-/* import {
-  EmptyContainer,
-  NoOrders,
-  OrderNowLink,
-  AddSomething,
-  OrderNowButton,
-  EmptyCartImage,
-} from './StyledComponents' */
-
 import './index.css'
 
 const EmptyCart = () => (
@@ -25,7 +15,9 @@ const EmptyCart = () => (
         Your cart is empty. Add something from the menu.
       </p>
       <Link to="/" className="order-now-link">
-        <button className="order-now-button">Order Now</button>
+        <button className="order-now-button" type="submit">
+          Order Now
+        </button>
       </Link>
     </div>
   </>

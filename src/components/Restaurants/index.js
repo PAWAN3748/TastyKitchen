@@ -1,19 +1,6 @@
 import {Link} from 'react-router-dom'
 import {BsFillStarFill} from 'react-icons/bs'
 
-/* import {
-  EachRestaurant,
-  ResName,
-  ResDetailsContainer,
-  ResImageThumb,
-  ResNameAndRatingContainer,
-  ResCuisine,
-  ResStar,
-  StarAndRatingContainer,
-  ResRating,
-  ResImageContainer,
-  LinkComponent,
-} from './StyledComponents' */
 import './index.css'
 
 const Restaurants = props => {
@@ -35,7 +22,7 @@ const Restaurants = props => {
             <img
               className="restaurant-details-image"
               src={imageUrl}
-              alt="res"
+              alt="restaurant"
             />
             <div className="res-name-rating-container">
               <h1 className="res-details-name">{name}</h1>
